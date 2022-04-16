@@ -6,8 +6,8 @@ Before installing, you must have already set environment variable (mysql) and do
 
 ### step 2 (restore database)
 &emsp;&emsp;enter the database and input> create database YummyMap;  
-&emsp;&emsp;exit the database
-&emsp;&emsp;open command line and enter correct file path
+&emsp;&emsp;exit the database  
+&emsp;&emsp;open command line and enter correct file path  
 &emsp;&emsp;then, input> mysql -uroot YummyMap < YummyMap.sql
 
 ### step 3 (give user privilege)
