@@ -1,0 +1,33 @@
+<head>
+	<title>YummyMap</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="Map.css">
+	<script src="./jquery-3.4.1.min.js"></script>
+</head>
+
+<body id="InfoBody">
+	<section class="InfoBK">
+		<h2>作者資訊</h2>
+		<p>NKNU 軟體工程與管理學系一年級: 廖儒均、黃崇哲</p>
+		<p>小弟不才，還請大力提拔 Ow O</p>
+		<p>商家登入 <input type="button" value="Login" onclick="javascript:location.href='./Store/Login.php'"></p>
+		<hr class="apply" style="display: none;">
+		<p>商家申請 <input type="button" id="applyButton" value="Apply" onclick="javascript:$('.apply').css('display', '');$('#applyButton').css('display', 'none')"></p>
+		<section class="apply" style="display: none;">
+			<form action="./Store/StoreAccount/ApplyAccount.php" method="post">
+				<p>帳號- <input type="text" name="account"></p>
+				<p>密碼- <input type="text" name="password"></p>
+				<p>重複密碼- <input type="text" name="CheckPassword"></p>
+				<input type="submit" value="送出">
+			</form>
+			<hr>
+		</section>
+	</section>
+	
+	<aside>
+		<input type="button" onclick="javascript:location.href='./Home.html'" class="Button" style="background-image:url(image/Button_Home.png);">
+		<input type="button" onclick="javascript:location.href='./Map.html'" class="Button" style="background-image:url(image/Button_Map.png);">
+		<input type="button" onclick="javascript:location.href='./Info.html'" class="Button" style="background-image:url(image/Button_Info.png);">
+		<input type="button" onclick="javascript:location.href='./Version.html'" class="Button" style="background-image:url(image/Button_Version.png);">
+	</aside>
+</body>

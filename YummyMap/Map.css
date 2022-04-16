@@ -1,0 +1,114 @@
+/* Button */
+aside{
+	position: fixed;
+	top: 82%;
+	left: 27%;
+	width: 100%;
+	height: 100%;
+}
+.Button {
+	width: 10%;
+	height: 15%;
+	background-size:100% 100%;
+	margin: 0.5%;
+}
+
+/* Home */
+#HomeBK {
+	width: 100%;
+	height: 100%;
+	background-image:url("image/HomeBK.png");
+	background-size:100% 100%;
+}
+
+/* Map.html */
+#Loading::before{/* 偽元素使文字置中 */
+	content: "";
+	height: 100%;
+	display: inline-block;
+	vertical-align: middle;
+}
+#Loading {
+	color: blue;
+	text-align: center;
+}
+
+/* Map.php */
+#InfoBody {
+	overflow: hidden;
+}
+#white{
+	height: 10%;
+}
+
+#Map {
+	width: 100%;
+	height: 100%;
+	background-image:url("image/MapBK.png");
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+}
+
+.LM {
+	width: 4%;
+	height: 8%;
+}
+
+/* Info */
+#InfoBody {
+	overflow: hidden;
+}
+
+.InfoBK::before{ /* 偽元素使文字置中 */
+	content: "";
+	height: 12%;
+	display: inline-block;
+	vertical-align: middle;
+}
+.InfoBK {
+	width: 100%;
+	height: 100%;
+	background-image:url("image/InfoBK.png");
+	background-size:100% 100%;
+	text-align: center;
+}
+
+#InfoBack {
+	width: 5%;
+	height: 10%;
+	float: left;
+}
+
+/* Version */
+#VersionInfo {
+	width: 100%;
+	height: 100%;
+	background-image:url("image/VersionBK.png");
+	background-size:100% 100%;
+}
+
+#text::before{ /* 偽元素使文字置中 */
+	content: "";
+	height: 43%;
+	display: inline-block;
+	vertical-align: middle;
+}
+#text {
+	color:#FFFFFF;
+	text-align: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+}
+
+/* Other */
+#SelectPosition {
+	width: 50%;
+	height: 50%;
+	background-image:url("image/MapBK.png");
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+}

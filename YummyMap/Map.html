@@ -1,0 +1,24 @@
+<head>
+	<title>YummyMap</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="Map.css">
+	<script src="./jquery-3.4.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			document.location.href="./Map.php";
+		})
+	</script>
+</head>
+
+<body id="InfoBody">
+	<section id="Map">
+		<h2 id="Loading">讀取地圖中，請稍後...</h2>
+	</section>
+	
+	<aside>
+		<input type="button" onclick="javascript:location.href='./Home.html'" class="Button" style="background-image:url(image/Button_Home.png);">
+		<input type="button" onclick="javascript:location.href='./Map.html'" class="Button" style="background-image:url(image/Button_Map.png);">
+		<input type="button" onclick="javascript:location.href='./Info.html'" class="Button" style="background-image:url(image/Button_Info.png);">
+		<input type="button" onclick="javascript:location.href='./Version.html'" class="Button" style="background-image:url(image/Button_Version.png);">
+	</aside>
+</body>

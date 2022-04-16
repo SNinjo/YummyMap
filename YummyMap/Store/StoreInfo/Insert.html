@@ -1,0 +1,115 @@
+<head>
+	<title>YummyMap</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<style>
+		#SelectPosition {
+			width: 50%;
+			height: 50%;
+			background-image:url("../../image/MapBK.png");
+			background-size:100% 100%;
+			background-repeat:no-repeat;
+		}
+		.LM{
+			width: 4%;
+			height: 8%;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+	<script>
+		//以 JS 動態增減菜單表格
+		iMenuNum = 0;
+		function MenuPlus(){
+			if (iMenuNum == 9) return;
+			iMenuNum++;
+			$("#MenuNumber").val(iMenuNum + 1);
+			$("#MenuInput").append("<input type='text' id='Menu0" + iMenuNum + "' name='Menu0" + iMenuNum + "' required><input type='number' id='Price0" + iMenuNum + "' name='Price0" + iMenuNum + "' value='0' max='999' min='0'><br id='Break0" + iMenuNum + "'>");
+		}
+		function MenuMinus(){
+			if (iMenuNum == 0) return;
+			$("#Menu0" + iMenuNum).remove();
+			$("#Price0" + iMenuNum).remove();
+			$("#Break0" + iMenuNum).remove();
+			iMenuNum--;
+			$("#MenuNumber").val(iMenuNum + 1);
+		}
+		
+		//注意圖片載入問題(載入有時間差，使用 onload)
+		function PreviewLogo(Input){
+			//Change 不代表有檔案
+			if (Input.files && Input.files[0]) {
+				var regExp = /(gif|png|jpg|jpeg)$/;
+				if (!regExp.test(Input.files[0].type)){
+					alert("檔案格式錯誤: 只接受 GIF/ PNG/ JPG/ JPEG");
+					$('#Form').trigger("reset");
+					$('#LM').attr('src', "../image/Landmark.png");
+				}
+				else {
+					var reader = new FileReader();
+					reader.onload = function(e) {
+						$('#LM').attr('src', e.target.result);
+					}
+					reader.readAsDataURL(Input.files[0]); // convert to base64 string
+				}
+			}
+		}
+		function CheckSize(){
+			var Img = document.getElementById("LM");
+			if ((Img.naturalWidth != 256) || (Img.naturalHeight != 256)){
+				alert("大小格式錯誤: 只接受 256 * 256");
+				$('#Form').trigger("reset");
+				$('#LM').attr('src', "../image/Landmark.png");
+			}
+		}
+		
+		//圖片點選商家位置
+		$(document).ready(function(){
+			var X = 0, Y = 0;
+		
+			const element = document.getElementById('SelectPosition');
+			element.addEventListener('click', function(e) {
+				X = (e.offsetX / element.clientWidth * 100).toFixed(0) - 2;
+				Y = (e.offsetY / element.clientHeight * 100).toFixed(0) - 8;
+				if (X < 0) X = 0;
+				if (Y < 0) Y = 0;
+				$("#PositionX").val(X);
+				$("#PositionY").val(Y);
+				$("#ClickSite").css({"left": X + "%", "top": Y + "%"});
+			})
+			
+			//Click 商標(子物件)處理
+			const elementChild = document.getElementById('ClickSite');
+			elementChild.addEventListener('click', function(e) {
+				event.stopPropagation();
+				
+				X = parseInt(X) + parseInt((e.offsetX / element.clientWidth * 100).toFixed(0)) - 2;
+				Y = parseInt(Y) + parseInt((e.offsetY / element.clientHeight * 100).toFixed(0)) - 8;
+				if (X < 0) X = 0;
+				if (Y < 0) Y = 0;
+				$("#PositionX").val(X);
+				$("#PositionY").val(Y);
+				$("#ClickSite").css({"left": X + "%", "top": Y + "%"});
+			})
+		})
+	</script>
+</head>
+<body>
+	<form id="Form" action="./InputData.php" method="post" enctype='multipart/form-data'>
+		<h1> 登入商家資料:  <input type="submit" value="確定送出"><input type="hidden" name="Method" value="Insert"></h1>
+		<p>店名:<input type="text" name="name" required></p>
+		<p>Logo(格式: 256*256 GIF/ PNG/ JPG): <input type='file' id='userFile' name='userFile' onchange="PreviewLogo(this)" accept="image/gif, image/jpeg, image/png"><img id="LM" class="LM" onload="CheckSize()" src="../../image/Landmark.png"></p>
+		<p>商家介紹: <textarea name="introduce" maxlength="100" required></textarea></p>
+		<p>地圖位置 X軸:<input type="number" id="PositionX" name="PositionX" value="0" max="100" min="0"> Y軸:<input type="number" id="PositionY" name="PositionY" value="0" max="100" min="0"></p><p>~可點選圖片選取位置~<section id="SelectPosition"><img id="ClickSite" class="LM" style="position: relative;left: 0%;top: 0%;" src="../../image/Landmark_red.png"></section></p>
+		<p>營業時間:</p>
+		<p>星期一 <input type="Number" name="1Hours01" value="0" max="23" min="0">:<input type="Number" name="1Hours02" value="0" max="59" min="0"> ~ <input type="Number" name="1Hours03" value="0" max="23" min="0">:<input type="Number" name="1Hours04" value="0" max="59" min="0"></p>
+		<p>星期二 <input type="Number" name="2Hours01" value="0" max="23" min="0">:<input type="Number" name="2Hours02" value="0" max="59" min="0"> ~ <input type="Number" name="2Hours03" value="0" max="23" min="0">:<input type="Number" name="2Hours04" value="0" max="59" min="0"></p>
+		<p>星期三 <input type="Number" name="3Hours01" value="0" max="23" min="0">:<input type="Number" name="3Hours02" value="0" max="59" min="0"> ~ <input type="Number" name="3Hours03" value="0" max="23" min="0">:<input type="Number" name="3Hours04" value="0" max="59" min="0"></p>
+		<p>星期四 <input type="Number" name="4Hours01" value="0" max="23" min="0">:<input type="Number" name="4Hours02" value="0" max="59" min="0"> ~ <input type="Number" name="4Hours03" value="0" max="23" min="0">:<input type="Number" name="4Hours04" value="0" max="59" min="0"></p>
+		<p>星期五 <input type="Number" name="5Hours01" value="0" max="23" min="0">:<input type="Number" name="5Hours02" value="0" max="59" min="0"> ~ <input type="Number" name="5Hours03" value="0" max="23" min="0">:<input type="Number" name="5Hours04" value="0" max="59" min="0"></p>
+		<p>星期六 <input type="Number" name="6Hours01" value="0" max="23" min="0">:<input type="Number" name="6Hours02" value="0" max="59" min="0"> ~ <input type="Number" name="6Hours03" value="0" max="23" min="0">:<input type="Number" name="6Hours04" value="0" max="59" min="0"></p>
+		<p>星期日 <input type="Number" name="7Hours01" value="0" max="23" min="0">:<input type="Number" name="7Hours02" value="0" max="59" min="0"> ~ <input type="Number" name="7Hours03" value="0" max="23" min="0">:<input type="Number" name="7Hours04" value="0" max="59" min="0"></p>
+		<p>菜單 數量:<input type="number" id="MenuNumber" name="MenuNumber" value="1" readonly><input type="button" id="MenuPlusButton" value="++" onclick="MenuPlus()"><input type="button" id="MenuMinusButton" value="--" onclick="MenuMinus()"></p>
+		<section id="MenuInput">
+			<input type="text" id="Menu00" name="Menu00" required><input type="number" id="Price00" name="Price00" value="0" max="999" min="0"><br id="Break00">
+		</section>
+	</form>
+</body>
