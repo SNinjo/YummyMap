@@ -1,4 +1,4 @@
-## Installation Steps
+## Installation
 Before installing, you must have already set environment variable (mysql) and downloaded the http server and database (recommend mysql)
 
 ### step 1
