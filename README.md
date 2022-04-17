@@ -51,7 +51,7 @@ login account- manager, password- 012345
 ![image](https://github.com/SNinjo/YummyMap/blob/main/img/flowcharts11.png)
   
   
-edit all of the store information and the store account
+manage all of the store information and the store account
 ![image](https://github.com/SNinjo/YummyMap/blob/main/img/flowcharts12.png)
   
 <br><br>
