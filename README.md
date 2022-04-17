@@ -2,6 +2,13 @@
 a map application to participate in [industry-university cooperation program](https://www.facebook.com/nknu2015/posts/965668330436223/) and research all of the process of building website such as DNS, Ajax, HTTP server, database, etc.
 <br><br>
 ## Operating Example
+### Account List
+&emsp;&emsp;Account- manager, Password- 012345  
+&emsp;&emsp;Account- store, Password- 123  
+&emsp;&emsp;Account- store02, Password- 123  
+&emsp;&emsp;Account- store03, Password- 123  
+<br>
+  
 click the Home button
 ![image](https://github.com/SNinjo/YummyMap/blob/main/img/flowcharts01.png)
   
