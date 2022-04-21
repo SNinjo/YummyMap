@@ -1,5 +1,5 @@
 # YummyMap
-It's a map application to participate in [industry-university cooperation program](https://www.facebook.com/nknu2015/posts/965668330436223/) and research all of the process of building website such as DNS, Ajax, HTTP server, database, etc.
+developed a map application to participate in [industry-university cooperation program](https://www.facebook.com/nknu2015/posts/965668330436223/) and research all of the process of building website such as DNS, Ajax, HTTP server, database, etc.
 <br><br>
 ## Operating Example
 ### Account List
